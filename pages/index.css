@@ -1,0 +1,14 @@
+.page_content {
+  margin-left: 200px;
+  margin-right: 200px;
+}
+.page {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: white;
+}
+
+.header {
+  margin-top: 45px;
+  max-width: 880px;
+}
