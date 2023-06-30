@@ -1,0 +1,10 @@
+.profile {
+  display: flex;
+}
+
+.profile__info {
+  display: grid;
+  grid-template-areas:
+    "title button"
+    "description description";
+}
