@@ -23,13 +23,33 @@
 
   .profile__description {
     width: 100%;
+    margin-top: 14px;
+    padding-right: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
     text-align: center;
   }
 
   .profile__add-button {
     padding: 0;
-    width: 100%;
+    width: 282px;
     align-items: center;
     border-radius: solid white;
+    margin: 0;
+    margin-top: 36px;
+  }
+
+  .profile__title {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+
+  .profile__image {
+    margin: 0;
+    margin-bottom: 30px;
   }
 }

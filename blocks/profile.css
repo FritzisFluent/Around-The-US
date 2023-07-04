@@ -26,6 +26,7 @@
   width: 24px;
   grid-area: button;
   margin-left: 10px;
+  border: white;
 }
 
 .profile__add-button {
@@ -33,6 +34,7 @@
   width: 150px;
   height: 50px;
   margin-left: auto;
+  border: solid white;
 }
 
 .profile__description {
@@ -41,6 +43,10 @@
   line-height: 22px;
   grid-area: description;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 373px;
 }
 
 .profile__image {
