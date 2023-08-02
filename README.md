@@ -8,9 +8,9 @@
 
 **Intro**
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+This is my 3rd project in the full stack web developement bootcamp at TripleTen.
 
-\*\* Link to the project on GitHub: https://discord.com/channels/1078663743568883783/1135720389469810800/1135720389469810800
+\*\* [Link to the project on GitHub]: https://github.com/FritzisFluent/se_project_aroundtheus
 
 - [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
 
