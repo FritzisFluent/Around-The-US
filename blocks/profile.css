@@ -22,6 +22,7 @@
 
 .profile__edit-button {
   background: transparent url(../images/edit-button.svg) center no-repeat;
+  margin-right: 20px;
   height: 24px;
   width: 24px;
   grid-area: button;
@@ -56,7 +57,13 @@
   margin-right: 24px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 760px) {
+  .profile__title {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 620px) {
   .profile {
     flex-direction: column;
   }
