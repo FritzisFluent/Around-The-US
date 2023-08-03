@@ -8,8 +8,8 @@
 
 **Intro**
 
-This is my 3rd project in the full stack web developement bootcamp at TripleTen.
+This is my 3rd project in the full stack web developement bootcamp at TripleTen. This project allows me to put into pratice the technology that I learned during the third sprint at TripleTen. Below you will find link to the project both on Github pages and Figma
 
-- [Link to the project on Github](https://github.com/FritzisFluent/se_project_aroundtheus)
+- [link to GitHub pages](https://github.com/FritzisFluent/se_project_aroundtheus)
 
 - [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
