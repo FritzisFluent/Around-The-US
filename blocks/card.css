@@ -1,5 +1,4 @@
 .cards {
-  /*fonts*/
   margin-top: 30px;
 }
 
@@ -35,9 +34,9 @@
 }
 
 .card__title {
-  font-family: "Black", sans-serif;
-  font-style: normal;
   font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
