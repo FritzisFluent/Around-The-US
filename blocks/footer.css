@@ -7,3 +7,10 @@
   margin-bottom: 60px;
   color: rgba(84, 84, 84, 1);
 }
+
+@media only screen and (max-width: 320px) {
+  .footer {
+    margin-top: 48px;
+    font-size: 14px;
+  }
+}
