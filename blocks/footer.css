@@ -1,15 +1,31 @@
 .footer__copyright {
+  display: flex;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   margin-top: 67px;
   margin-bottom: 60px;
-  color: rgba(84, 84, 84, 1);
+  color: #545454;
 }
 
-@media only screen and (max-width: 320px) {
-  .footer {
+/**Media queries for all resolutions**/
+
+/* styles for 620px */
+
+@media (max-width: 620px) {
+  .footer__copyright {
+    justify-content: center;
+    font-size: 16px;
     margin-top: 48px;
+  }
+}
+
+@media (max-width: 355px) {
+  .footer__copyright {
     font-size: 14px;
+    line-height: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

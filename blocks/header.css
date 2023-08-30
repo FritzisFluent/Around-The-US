@@ -1,14 +1,15 @@
-.page {
-  overflow-x: hidden;
-}
-
 .header {
   margin-top: 45px;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
   padding-bottom: 41px;
+  width: 100%;
 }
 
-@media screen and (max-width: 320px) {
+/* Media queries */
+
+/* styles for 375px */
+
+@media (max-width: 375px) {
   .header {
     width: 100%;
     margin: 0 auto;
@@ -17,6 +18,20 @@
   .header__image {
     width: 126px;
     height: 24px;
-    margin: 28px 147px 32px 7px;
+    margin: 28px 167px 32px 27px;
+  }
+
+  /* styles for 320px */
+}
+@media (max-width: 320px) {
+  .header {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .header__image {
+    width: 126px;
+    height: 24px;
+    margin: 28px 167px 32px 27px;
   }
 }
