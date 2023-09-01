@@ -51,7 +51,6 @@
 /* Button hover style*/
 
 .card__like-button:hover {
-  transform: scale(1.2);
-  opacity: 100%;
+  opacity: 50%;
   cursor: pointer;
 }
