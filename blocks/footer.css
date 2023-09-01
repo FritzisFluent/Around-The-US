@@ -6,26 +6,19 @@
   margin-top: 67px;
   margin-bottom: 60px;
   color: #545454;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/**Media queries for all resolutions**/
-
-/* styles for 620px */
+/*styles for 620px */
 
 @media (max-width: 620px) {
   .footer__copyright {
-    justify-content: center;
-    font-size: 16px;
-    margin-top: 48px;
-  }
-}
-
-@media (max-width: 355px) {
-  .footer__copyright {
+    line-height: 17px;
     font-size: 14px;
-    line-height: normal;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin-top: 48px;
+    margin-bottom: 36px;
+    justify-content: center;
   }
 }

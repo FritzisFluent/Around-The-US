@@ -89,16 +89,10 @@
   .profile__title {
     font-size: 28px;
     width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .profile__description {
     font-size: 16px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .profile__edit-button {
@@ -122,6 +116,7 @@
   .profile__info {
     width: 100%;
     justify-content: center;
+    gap: 14px 10px;
   }
 
   .profile__description {
@@ -143,11 +138,6 @@
     margin-top: 36px;
   }
 
-  .profile__edit-button {
-    height: 18px;
-    width: 18px;
-  }
-
   .profile__title {
     font-size: 22px;
     line-height: 27px;
@@ -163,14 +153,8 @@
 /* styles for small smartphones 320px*/
 
 @media (max-width: 320px) {
-  .profile__title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
   .profile__info {
     padding-left: 0;
-    gap: 10px 14px;
   }
 
   .profile__description {
@@ -179,7 +163,6 @@
 
   .profile__add-button {
     width: 90%;
-    margin-top: 20px;
   }
 
   .profile__image {
