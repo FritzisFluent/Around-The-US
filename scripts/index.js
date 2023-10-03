@@ -1,4 +1,4 @@
-const initalCards = [
+const initialCards = [
   //Object1
   {
     name: "Dumbo",
@@ -31,4 +31,4 @@ const initalCards = [
   },
 ];
 
-console.log(initalCards);
+console.log(initialCards);
