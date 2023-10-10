@@ -1,8 +1,3 @@
-/*.modal {
-  display: none;
-}
-*/
-
 /* modal styles */
 .modal {
   position: fixed;
@@ -14,13 +9,12 @@
   z-index: 999;
   display: flex;
   padding: 0 19px;
-  /* need to fix that before submitting it
-  display: none;*/
+  display: none;
 }
 
-/*.modal__opened {
-    display: flex;
-}*/
+.modal__opened {
+  display: flex;
+}
 
 /* modal__container styles */
 
