@@ -2,21 +2,96 @@
   display: none;
 }
 */
+
+/* modal styles */
 .modal {
+ 
   position: fixed;
-  background-color: aqua;
+  background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   z-index: 999;
   display: flex;
-
-  align-items: center;
-  justify-content: center;
+  padding: 0 19px;
+  /* need to fix that before submitting it*/
+  /*display: none;*/
 }
+
+/*.modal__opened {
+    display: flex;
+}*/
+
+
+/* modal__container styles */
 
 .modal__container {
-  background-color: white;
-  padding: 36px;
+position: relative;
+background-color: #fff;
+padding: 36px;
+margin: auto;
+width: 394px ;
+height: 294px;
+border-radius: 10px;
+
 }
+
+/* modal__close button styles */
+
+.modal__close {
+border: none;
+background: url(../images/Close\ Icon1.svg) no-repeat center/contain
+    transparent;
+position: absolute;
+cursor: pointer;
+bottom: calc(100% + 5px);
+left: calc(100% + 5px);
+width: 40px;
+height: 40px;
+}
+
+.modal__heading {
+font-family: Inter;
+font-size: 24px;
+font-weight: 900;
+line-height: 29px;
+letter-spacing: 0em;
+text-align: left;
+color: #000;
+margin-bottom: 54px;
+}
+
+.modal__form {
+display: flex;
+flex-direction: column;
+}
+
+.form__title {
+box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+border: none;
+margin-bottom: 30px;
+
+}
+
+.form__description {
+box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+border: none;
+margin-bottom: 48px;
+
+}
+
+.modal__save-button {
+background: url(../images/Submit\ Button.svg);
+max-width: 400px;
+height: 50px;
+border-radius: 2px;
+margin: 0;
+padding: 0;
+
+
+}
+
+
+/* Media Queries/
+
