@@ -71,16 +71,15 @@ flex-direction: column;
 }
 
 .modal__input-title {
-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
 margin-bottom: 30px;
 border: none;
-border-bottom: ;
+border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 .modal__input-description {
-box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
 margin-bottom: 48px;
 border: none;
+border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 /* modal__save-button styles */
