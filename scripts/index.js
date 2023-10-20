@@ -37,17 +37,24 @@ const initialCards = [
 
 //! Select the profile edit button using its id
 const profileEditButton = document.querySelector("#profile-edit-button");
+console.log(profileEditButton);
 
 //! select the modal using the its id
 const profileEditModal = document.querySelector("#profile-edit-modal");
 console.log(profileEditModal);
 
-//! add event listener to the profile edit button
-//! set the modal button to open upon clicking
+//! Add an event listener to the profile edit button
 profileEditButton.addEventListener("click", () => {
   //! set the modal button to open upon clicking
   profileEditModal.classList.add("modal__opened");
 });
 
-//! add event listener to the profile edit button
-//! set the modal button to open upon clicking
+//! select the modal__close button using its id
+const modalCloseButton = document.querySelector("#modal-close-button");
+console.log(modalCloseButton);
+
+//! Add an eventListener to the moda__close button
+modalCloseButton.addEventListener("click", () => {
+  //! set the modal_close button to close upon clicking
+  profileEditModal.classList.remove("modal__opened");
+});
