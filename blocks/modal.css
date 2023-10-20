@@ -1,4 +1,4 @@
-/* modal styles */
+/*! modal styles */
 .modal {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
@@ -16,7 +16,7 @@
   display: flex;
 }
 
-/* modal__container styles */
+/*! modal__container styles */
 
 .modal__container {
   position: relative;
@@ -28,7 +28,7 @@
   border-radius: 10px;
 }
 
-/* modal__close button styles */
+/*! modal__close button styles */
 
 .modal__close {
   border: none;
@@ -71,7 +71,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/* modal__save-button styles */
+/*! modal__save-button styles */
 
 .modal__save-button {
   background-color: #000;
@@ -89,7 +89,7 @@ button:hover {
   background-color: #555;
 }
 
-/* Media Queries */
+/*! Media Queries */
 @media screen and (max-width: 620px) {
   .modal__container {
     width: 282px;
