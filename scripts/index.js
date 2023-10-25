@@ -32,16 +32,16 @@ const initialCards = [
 ];
 
 //!Project 4 Stage 3. The DOM
+//?The modal box must be opened once the user clicks on the "Edit" button, and be closed upon clicking on the close button in the upper right corner:
 
-//*The modal box must be opened once the user clicks on the "Edit" button, and be closed upon clicking on the close button in the upper right corner:
-
-//! Select the profile edit button using its id
+//! Select the profile edit button using its id.
 const profileEditButton = document.querySelector("#profile-edit-button");
-console.log(profileEditButton);
 
-//! select the modal using the its id
+//! select the modal using the its id.
 const profileEditModal = document.querySelector("#profile-edit-modal");
-console.log(profileEditModal);
+
+//! select the modal__close button using its id.
+const modalCloseButton = document.querySelector("#modal-close-button");
 
 //! Add an event listener to the profile edit button
 profileEditButton.addEventListener("click", () => {
@@ -49,12 +49,25 @@ profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal__opened");
 });
 
-//! select the modal__close button using its id
-const modalCloseButton = document.querySelector("#modal-close-button");
-console.log(modalCloseButton);
-
 //! Add an eventListener to the moda__close button
 modalCloseButton.addEventListener("click", () => {
   //! set the modal_close button to close upon clicking
   profileEditModal.classList.remove("modal__opened");
 });
+
+//!Project 4. Final Stage:
+//!  Form fields, once the form has been opened, the "Name" and "About me" fields must be filled in with the values displayed on the page.
+
+//? Select the HTML profile elements displaying current values
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+
+//? Select the HTML form elements displaying current values
+const modalFormInputTitle = document.querySelector("#form-input-title");
+const modalFormInputDescription = document.querySelector(
+  "#form-input-description"
+);
+
+//! Set the value of the form inputs to the profile elements text contents.
+modalFormInputTitle.value = profileTitle.textContent;
+modalFormInputDescription.value = profileDescription.textContent;
