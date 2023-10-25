@@ -47,12 +47,15 @@ const modalCloseButton = document.querySelector("#modal-close-button");
 profileEditButton.addEventListener("click", () => {
   //! set the modal button to open upon clicking
   profileEditModal.classList.add("modal__opened");
+  //! Set the value of the form inputs to the profile elements text contents.
+  modalFormInputTitle.value = profileTitle.textContent;
+  modalFormInputDescription.value = profileDescription.textContent;
 });
 
 //! Add an eventListener to the moda__close button
 modalCloseButton.addEventListener("click", () => {
   //! set the modal_close button to close upon clicking
-  profileEditModal.classList.remove("modal__opened");
+  closePopup();
 });
 
 //!Project 4. Final Stage:
@@ -68,6 +71,19 @@ const modalFormInputDescription = document.querySelector(
   "#form-input-description"
 );
 
-//! Set the value of the form inputs to the profile elements text contents.
-modalFormInputTitle.value = profileTitle.textContent;
-modalFormInputDescription.value = profileDescription.textContent;
+//?Editing your name and about me.
+//!Just opening and closing the modal box isn't enough. This is the "Edit profile" modal, so it must edit the corresponding fields of the page. Once the user enters new information and clicks on the "Save" button, the page has to update to reflect the changes made, with the modal closing simultaneously:
+
+const profileEditForm = profileEditModal.querySelector(".modal__form");
+
+profileEditForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  profileTitle.textContent = modalFormInputTitle.value;
+  profileDescription.textContent = modalFormInputDescription.value;
+  closePopup();
+});
+
+//Callback function to close the modal
+function closePopup() {
+  profileEditModal.classList.remove("modal__opened");
+}
