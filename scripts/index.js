@@ -55,20 +55,15 @@ const carTemplate =
 /* ------------------------------------ */
 //! Reuseable Callback functions to close the modal.
 function closePopup() {
-  profileEditModal.classList.remove("modal__opened");
+  profileEditModal.classList.remove("modal_opened");
 }
 //! Callback functions to update the form field upon opening the Modal.
-function UpdateFormField() {
-  profileEditModal.classList.add("modal__opened");
+function updateFormField() {
+  profileEditModal.classList.add("modal_opened");
   modalFormInputTitle.value = profileTitle.textContent;
   modalFormInputDescription.value = profileDescription.textContent;
 }
 //! This ECMAScript 6 (ES6) Function works too.
-/*const UpdateFormField = () => {
-  profileEditModal.classList.add("modal__opened");
-  modalFormInputTitle.value = profileTitle.textContent;
-  modalFormInputDescription.value = profileDescription.textContent;
-}*/
 
 function getCardElement(cardData) {
   // Declare a getCardElement() function with one parameter named data. You’ll be passing objects of the array to it. The function should:
@@ -108,7 +103,7 @@ function handleFormSubmit(evt) {
 //!Set the modal button to open upon clicking.
 //!Set the value of the form inputs to the profile elements text contents.
 
-profileEditButton.addEventListener("click", UpdateFormField);
+profileEditButton.addEventListener("click", updateFormField);
 modalCloseButton.addEventListener("click", closePopup);
 
 //!Prevent the page to reload after form submission.

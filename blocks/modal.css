@@ -12,7 +12,7 @@
   display: none;
 }
 
-.modal__opened {
+.modal_opened {
   display: flex;
 }
 
@@ -93,7 +93,7 @@ button:hover {
 @media screen and (max-width: 620px) {
   .modal__container {
     width: 282px;
-    height: 322px;
+    height: auto; /* Adjusted height to fit content, not a fixed height */
     border-radius: 10px;
   }
 
@@ -101,6 +101,7 @@ button:hover {
     font-size: 18px;
     font-weight: 900;
     line-height: 22px;
+    margin-bottom: 36px; /* Reduced margin for better spacing */
   }
 
   .modal__save-button {
@@ -112,5 +113,10 @@ button:hover {
     height: 26px;
     bottom: calc(100% + 30px);
     left: calc(100% - 30px);
+  }
+
+  .modal__input-title,
+  .modal__input-description {
+    margin-bottom: 20px; /* Adjusted margin for better spacing */
   }
 }
