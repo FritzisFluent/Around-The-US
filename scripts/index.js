@@ -36,8 +36,10 @@ const initialCards = [
 /* ------------------------------------ */
 //!Select the modal, profile edit & modal__close button using their id.
 //!Select the HTML profile elements and form elements displaying current values.
+//!Select the add card modal
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
+const addCardModal = document.querySelector("#add-card-modal");
 const modalCloseButton = document.querySelector("#modal-close-button");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
