@@ -34,84 +34,83 @@ const initialCards = [
 /* ------------------------------------ */
 /* ------------Elements---------------- */
 /* ------------------------------------ */
-//!Select the modal, profile edit & modal__close button using their id.
-//!Select the HTML profile elements and form elements displaying current values.
-//!Select the add card modal
-const profileEditButton = document.querySelector("#profile-edit-button");
-const profileEditModal = document.querySelector("#profile-edit-modal");
-const addCardModal = document.querySelector("#add-card-modal");
-const modalCloseButton = document.querySelector("#modal-close-button");
+
+// Elements related to profile editing
+const editProfileButton = document.querySelector("#profile-edit-button");
+const editProfileModal = document.querySelector("#profile-edit-modal");
+const closeEditModalButton = document.querySelector("#modal-close-button");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
-const modalFormInputTitle = document.querySelector("#form-input-title");
-const modalFormInputDescription = document.querySelector(
+const editFormInputTitle = document.querySelector("#form-input-title");
+const editFormInputDescription = document.querySelector(
   "#form-input-description"
 );
-const profileEditForm = profileEditModal.querySelector(".modal__form");
+const editProfileForm = editProfileModal.querySelector(".modal__form");
+
+// Elements related to adding a new card
+const addCardButton = document.querySelector(".profile__add-button");
+const addCardModal = document.querySelector("#add-card-modal");
+const closeAddModalButton = addCardModal.querySelector(
+  "#add-modal-close-button"
+);
+
+// Template and list for cards
 const cardList = document.querySelector(".cards__list");
-const carTemplate =
+const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
-/* ------------------------------------- */
-/* ------------Functions--------------- */
-/* ------------------------------------ */
-//! Reuseable Callback functions to close the modal.
-function closePopup() {
-  profileEditModal.classList.remove("modal_opened");
+// Function to open the profile edit modal
+function openEditProfileModal() {
+  editProfileModal.classList.add("modal_opened");
+  editFormInputTitle.value = profileTitle.textContent;
+  editFormInputDescription.value = profileDescription.textContent;
 }
-//! Callback functions to update the form field upon opening the Modal.
-function updateFormField() {
-  profileEditModal.classList.add("modal_opened");
-  modalFormInputTitle.value = profileTitle.textContent;
-  modalFormInputDescription.value = profileDescription.textContent;
-}
-//! This ECMAScript 6 (ES6) Function works too.
 
-function getCardElement(cardData) {
-  // Declare a getCardElement() function with one parameter named data. You’ll be passing objects of the array to it. The function should:
-  //clone the template element with all its content and store it in a cardElement variable.
-  const cardElement = carTemplate.cloneNode(true);
-  //access the card title and image and store them in variables.
+// Function to close any modal
+function closePopup(modal) {
+  modal.classList.remove("modal_opened");
+}
+
+// Function to open the add card modal
+function openAddCardModal() {
+  addCardModal.classList.add("modal_opened");
+}
+
+// Function to create and return a new card element
+function createCardElement(cardData) {
+  const cardElement = cardTemplate.cloneNode(true);
   const cardTitleElement = cardElement.querySelector(".card__title");
   const cardImageElement = cardElement.querySelector(".card__image");
-  // Set the path to the image to the link field of the object
-  cardImageElement.src = cardData.link; // Set the image source
-  // Set the image alt text to the name field of the object
-  cardImageElement.alt = cardData.name; // Set the image alt attribute
-  //set the card title to the name field of the object, too
+  cardImageElement.src = cardData.link;
+  cardImageElement.alt = cardData.name;
   cardTitleElement.textContent = cardData.name;
-  //return the ready HTML element with the filled-in data.
   return cardElement;
 }
 
-/* ------------------------------------- */
-/* ------------Event Handlers----------- */
-/* ------------------------------------- */
+// Event listener for the edit profile button
+editProfileButton.addEventListener("click", openEditProfileModal);
 
-//! Function/Event Handler to prevent the page to reload upon submiting
-//! Update the profile elements with the form fiels value upon submitting
-function handleFormSubmit(evt) {
+// Event listener for the close edit modal button
+closeEditModalButton.addEventListener("click", () =>
+  closePopup(editProfileModal)
+);
+
+// Event listener for the add card button
+addCardButton.addEventListener("click", openAddCardModal);
+
+// Event listener for the close add card modal button
+closeAddModalButton.addEventListener("click", () => closePopup(addCardModal));
+
+// Event listener for the profile edit form submission
+editProfileForm.addEventListener("submit", function (evt) {
   evt.preventDefault();
-  profileTitle.textContent = modalFormInputTitle.value;
-  profileDescription.textContent = modalFormInputDescription.value;
-  closePopup();
-}
+  profileTitle.textContent = editFormInputTitle.value;
+  profileDescription.textContent = editFormInputDescription.value;
+  closePopup(editProfileModal);
+});
 
-/* ------------------------------------- */
-/* ------------EventListeners----------- */
-/* ------------------------------------- */
-
-//! Add an event listener to the profile edit button.
-//!Set the modal button to open upon clicking.
-//!Set the value of the form inputs to the profile elements text contents.
-
-profileEditButton.addEventListener("click", updateFormField);
-modalCloseButton.addEventListener("click", closePopup);
-
-//!Prevent the page to reload after form submission.
-profileEditForm.addEventListener("submit", handleFormSubmit);
-
+// Populate the page with initial cards
 initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
+  const cardElement = createCardElement(cardData);
   cardList.prepend(cardElement);
 });

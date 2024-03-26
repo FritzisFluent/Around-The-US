@@ -71,6 +71,14 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+/*!styles for the modal__input-url */
+
+.modal__input-url {
+  margin-bottom: 48px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 /*! modal__save-button styles */
 
 .modal__save-button {
