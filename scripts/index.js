@@ -1,4 +1,6 @@
-/* ---------------------Card Objects----------------------------- */
+/* ------------------------------------ */
+/* ------Initial Cards Array----------- */
+/* ------------------------------------ */
 const initialCards = [
   //!Object1
   {
@@ -32,85 +34,100 @@ const initialCards = [
   },
 ];
 /* ------------------------------------ */
-/* ------------Elements---------------- */
+/* --------Selecting DOM Elements------ */
 /* ------------------------------------ */
 
-// Elements related to profile editing
-const editProfileButton = document.querySelector("#profile-edit-button");
-const editProfileModal = document.querySelector("#profile-edit-modal");
-const closeEditModalButton = document.querySelector("#modal-close-button");
-const profileTitle = document.querySelector(".profile__title");
-const profileDescription = document.querySelector(".profile__description");
-const editFormInputTitle = document.querySelector("#form-input-title");
-const editFormInputDescription = document.querySelector(
+const profileEditButton = document.querySelector("#profile-edit-button"); //Selecting the profile edit button
+const profileEditModal = document.querySelector("#profile-edit-modal"); //Selecting the profile edit modal
+const closeEditModalButton = document.querySelector("#modal-close-button"); //Selecting the close button for the profile edit modal
+const profileTitle = document.querySelector(".profile__title"); //Selecting the profile title
+const profileDescription = document.querySelector(".profile__description"); //Selecting the profile description
+const modalFormInputTitle = document.querySelector("#form-input-title"); //Selecting the input field for the title
+const modalFormInputDescription = document.querySelector(
   "#form-input-description"
-);
-const editProfileForm = editProfileModal.querySelector(".modal__form");
-
-// Elements related to adding a new card
-const addCardButton = document.querySelector(".profile__add-button");
-const addCardModal = document.querySelector("#add-card-modal");
-const closeAddModalButton = addCardModal.querySelector(
+); //Selecting the input field for the description
+const profileEditForm = profileEditModal.querySelector(".modal__form"); //Selecting the form for the profile edit modal
+const addCardButton = document.querySelector(".profile__add-button"); //Selecting the add card button
+const addCardModal = document.querySelector("#add-card-modal"); //Selecting the add card modal
+const closeAddCardModalButton = addCardModal.querySelector(
   "#add-modal-close-button"
-);
-
-// Template and list for cards
-const cardList = document.querySelector(".cards__list");
+); //Selecting the close button for the add card modal
+const cardList = document.querySelector(".cards__list"); //Selecting the card list
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+const addCardForm = addCardModal.querySelector("#add-card-form"); //Selecting the form for the add card modal
 
-// Function to open the profile edit modal
-function openEditProfileModal() {
-  editProfileModal.classList.add("modal_opened");
-  editFormInputTitle.value = profileTitle.textContent;
-  editFormInputDescription.value = profileDescription.textContent;
+/* --------------------------------------------------- */
+/* -----------Functions for Modal Operations---------- */
+/* -------------------------------------------------- */
+
+// Function to open the modal
+function openPopup(modal) {
+  modal.classList.add("modal_opened");
 }
 
-// Function to close any modal
+// Function to close the modal
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
 }
 
-// Function to open the add card modal
-function openAddCardModal() {
-  addCardModal.classList.add("modal_opened");
-}
+/* --------------------------------------------------- */
+/* -----------Function to Create a Card Element---------- */
+/* -------------------------------------------------- */
 
-// Function to create and return a new card element
-function createCardElement(cardData) {
+function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
-  const cardTitleElement = cardElement.querySelector(".card__title");
-  const cardImageElement = cardElement.querySelector(".card__image");
-  cardImageElement.src = cardData.link;
-  cardImageElement.alt = cardData.name;
-  cardTitleElement.textContent = cardData.name;
+  cardElement.querySelector(".card__title").textContent = cardData.name;
+  cardElement.querySelector(".card__image").src = cardData.link;
+  cardElement.querySelector(".card__image").alt = cardData.name;
   return cardElement;
 }
 
-// Event listener for the edit profile button
-editProfileButton.addEventListener("click", openEditProfileModal);
+/* -------------------------------------------------------- */
+/* -----------Event Handlers for Form Submissions---------- */
+/* ------------------------------------------------------- */
 
-// Event listener for the close edit modal button
-closeEditModalButton.addEventListener("click", () =>
-  closePopup(editProfileModal)
-);
-
-// Event listener for the add card button
-addCardButton.addEventListener("click", openAddCardModal);
-
-// Event listener for the close add card modal button
-closeAddModalButton.addEventListener("click", () => closePopup(addCardModal));
-
-// Event listener for the profile edit form submission
-editProfileForm.addEventListener("submit", function (evt) {
+// Function to handle the form submission for editing the profile
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  profileTitle.textContent = editFormInputTitle.value;
-  profileDescription.textContent = editFormInputDescription.value;
-  closePopup(editProfileModal);
-});
+  profileTitle.textContent = modalFormInputTitle.value;
+  profileDescription.textContent = modalFormInputDescription.value;
+  closePopup(profileEditModal);
+}
 
-// Populate the page with initial cards
+// Function to handle the form submission for adding a new card
+function handleAddCardFormSubmit(evt) {
+  evt.preventDefault();
+  const cardName = addCardForm.querySelector("#card-name-input").value;
+  const cardLink = addCardForm.querySelector("#card-link-input").value;
+  const newCard = getCardElement({ name: cardName, link: cardLink });
+  cardList.prepend(newCard);
+  closePopup(addCardModal);
+  addCardForm.reset();
+}
+
+/* -------------------------------------------------------- */
+/* -----------Event Listeners---------- */
+/* ------------------------------------------------------- */
+
+// Event listeners for the profile edit modal
+profileEditButton.addEventListener("click", () => openPopup(profileEditModal));
+closeEditModalButton.addEventListener("click", () =>
+  closePopup(profileEditModal)
+);
+profileEditForm.addEventListener("submit", handleProfileFormSubmit); //Event listener for the edit form submission
+
+// Event listeners for the add card modal
+addCardButton.addEventListener("click", () => openPopup(addCardModal));
+closeAddCardModalButton.addEventListener("click", () =>
+  closePopup(addCardModal)
+);
+addCardForm.addEventListener("submit", handleAddCardFormSubmit); //Event listener for the card form submission
+
+/* -------------------------------------------------------- */
+/* -----------Rendering Initial Cards--------------------- */
+/* ------------------------------------------------------- */
 initialCards.forEach((cardData) => {
-  const cardElement = createCardElement(cardData);
+  const cardElement = getCardElement(cardData);
   cardList.prepend(cardElement);
 });
