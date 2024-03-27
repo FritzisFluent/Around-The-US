@@ -34,10 +34,8 @@
 }
 
 .card__like-button {
-  /*position: absolute;
-  right: 20px;*/
-
-  background: transparent url(../images/like-active-button.svg) center no-repeat;
+  background: transparent url(../images/like-innactive-button.svg) center
+    no-repeat;
   width: 21px;
   height: 18px;
   border: none;
@@ -51,6 +49,10 @@
 /* Button hover style*/
 
 .card__like-button:hover {
-  opacity: 50%;
+  opacity: 0.5;
   cursor: pointer;
+}
+
+.card__like-button_active {
+  background-image: url(../images/like-active-button.svg);
 }
