@@ -59,7 +59,7 @@
   background-image: url(../images/like-active-button.svg);
 }
 
-.trash-can-icon {
+.card__delete-button {
   background: transparent url(../images/Trash.svg) center no-repeat;
   position: absolute;
   top: 10px; /* Adjust as needed */

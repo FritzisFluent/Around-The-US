@@ -29,7 +29,7 @@ const initialCards = [
   },
   //!Object6
   {
-    name: "Brownstone",
+    name: "BrownStone",
     link: "https://images.unsplash.com/photo-1515112569565-1e4aef316db9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
   },
 ];
@@ -88,12 +88,12 @@ const addCardForm = addCardModal.querySelector("#add-card-form");
 /* -----------Functions for Modal Operations---------- */
 /* -------------------------------------------------- */
 
-// Function to open the modal
+// Function to open the modal is called "openPopup"
 function openPopup(modal) {
   modal.classList.add("modal_opened");
 }
 
-// Function to close the modal
+// Function to close the modal is called.
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
 }
@@ -116,6 +116,13 @@ function getCardElement(cardData) {
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
     console.log("clik");
+  });
+
+  //selecting the delete button
+  const deleteButton = cardElement.querySelector(".card__delete-button");
+  //adding an event listener to each delete button in order to remove the card when clicked
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
   });
 
   return cardElement;
