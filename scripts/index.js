@@ -110,6 +110,7 @@ function getCardElement(cardData) {
   cardTitle.textContent = cardData.name;
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
+  /* ---------------------------------------- */
   //selecting the all the card-like-buttons
   const likeButton = cardElement.querySelector(".card__like-button");
   //adding an event listener to each like button
@@ -117,12 +118,23 @@ function getCardElement(cardData) {
     likeButton.classList.toggle("card__like-button_active");
     console.log("clik");
   });
-
+  /* ---------------------------------------- */
   //selecting the delete button
   const deleteButton = cardElement.querySelector(".card__delete-button");
   //adding an event listener to each delete button in order to remove the card when clicked
   deleteButton.addEventListener("click", () => {
     cardElement.remove();
+  });
+  /* ---------------------------------------- */
+
+  const modalImage = document.querySelector(".modal__image-preview"); // Select the modal image element
+  //
+  const imageUrl = cardImage.src; // Get the image URL from the card image
+  // Assuming 'cardImage' is the image element inside your card template
+  // and 'modalImage' is the image element inside your modal
+  cardImage.addEventListener("click", () => {
+    modalImage.src = imageUrl; // Set the image URL to the modal image
+    openPopup(imageModal); // Your function to open the modal
   });
 
   return cardElement;
