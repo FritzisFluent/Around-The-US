@@ -1,15 +1,21 @@
-/*! modal styles */
+/* Base modal styling */
 .modal {
+  background-color: transparent; /* Makes the modal background invisible */
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 999;
-  display: flex;
-  padding: 0 19px;
-  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* Modal is hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure the modal is above other content */
+}
+
+.modal {
+  background-color: none; /* Makes the modal background invisible */
+  /* Other styles to position and display the modal */
 }
 
 .modal_opened {
@@ -26,6 +32,9 @@
   width: 394px;
   height: 294px;
   border-radius: 10px;
+  box-shadow: none; /* Removes shadow if there is one */
+  border: none; /* Removes border if there is one */
+  /* Other styles for the container */
 }
 
 /*! modal__close button styles */
@@ -40,6 +49,15 @@
   left: calc(100% + 5px);
   width: 40px;
   height: 40px;
+}
+
+.modal__content {
+  position: relative;
+  width: 75vw;
+  max-width: 75vw;
+  max-height: 75vh;
+  box-sizing: border-box;
+  /* Add more styles as necessary */
 }
 
 .modal__heading {
@@ -95,6 +113,25 @@
 
 button:hover {
   background-color: #555;
+}
+
+.modal__image {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain; /* This will ensure that the aspect ratio is maintained */
+}
+
+.modal__image-preview {
+  /* Other styles to position and display the modal */
+  max-width: 100%; /* Image can be as wide as its container but no wider */
+  max-height: 75vh; /* Image can be as tall as 75% of the viewport height but no taller */
+  object-fit: contain; /* Ensures the image fits within its box while maintaining aspect ratio */
+}
+
+.modal__container_preview {
+  background-color: transparent;
+  /* Add any other styles you want to apply when the image modal is open */
 }
 
 /*! Media Queries */

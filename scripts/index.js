@@ -39,48 +39,35 @@ const initialCards = [
 
 //Selecting the profile edit button
 const profileEditButton = document.querySelector("#profile-edit-button");
-
 //Selecting the profile edit modal
 const profileEditModal = document.querySelector("#profile-edit-modal");
-
 //Selecting the close button for the profile edit modal
 const closeEditModalButton = document.querySelector("#modal-close-button");
-
 //Selecting the profile title
 const profileTitle = document.querySelector(".profile__title");
-
 //Selecting the profile description
 const profileDescription = document.querySelector(".profile__description");
-
 //Selecting the input field for the title
 const modalFormInputTitle = document.querySelector("#form-input-title");
-
 //Selecting the input field for the description
 const modalFormInputDescription = document.querySelector(
   "#form-input-description"
 );
-
 //Selecting the form for the profile edit modal
 const profileEditForm = profileEditModal.querySelector(".modal__form");
-
 //Selecting the add card button
 const addCardButton = document.querySelector(".profile__add-button");
-
 //Selecting the add card modal
 const addCardModal = document.querySelector("#add-card-modal");
-
 //Selecting the close button for the add card modal
 const closeAddCardModalButton = addCardModal.querySelector(
   "#add-modal-close-button"
 );
-
 //Selecting the card list
 const cardList = document.querySelector(".cards__list");
-
 //Selecting the form for the add card modal
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-
 //Selecting the form for the add card modal
 const addCardForm = addCardModal.querySelector("#add-card-form");
 
@@ -111,6 +98,7 @@ function getCardElement(cardData) {
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
   /* ---------------------------------------- */
+  /* ---------------------------------------- */
   //selecting the all the card-like-buttons
   const likeButton = cardElement.querySelector(".card__like-button");
   //adding an event listener to each like button
@@ -119,6 +107,7 @@ function getCardElement(cardData) {
     console.log("clik");
   });
   /* ---------------------------------------- */
+  /* ---------------------------------------- */
   //selecting the delete button
   const deleteButton = cardElement.querySelector(".card__delete-button");
   //adding an event listener to each delete button in order to remove the card when clicked
@@ -126,16 +115,32 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
   /* ---------------------------------------- */
+  /* ---------------------------------------- */
+  // Selecting the image preview modal and its image element
+  const imageModal = document.querySelector(".modal__preview");
+  const modalImage = imageModal.querySelector(".modal__image-preview");
+  // Selecting the modal container
 
-  const modalImage = document.querySelector(".modal__image-preview"); // Select the modal image element
-  //
-  const imageUrl = cardImage.src; // Get the image URL from the card image
-  // Assuming 'cardImage' is the image element inside your card template
-  // and 'modalImage' is the image element inside your modal
+  // Setting up the click event listener for the card image
   cardImage.addEventListener("click", () => {
-    modalImage.src = imageUrl; // Set the image URL to the modal image
-    openPopup(imageModal); // Your function to open the modal
+    modalImage.src = cardData.link; // Assign the correct image source
+    modalImage.alt = cardData.name; // Assign the appropriate alt text
+    openPopup(imageModal); // Open the image preview modal
   });
+
+  // Selection the button that closes the image preview modal
+  const closeImageModalButton = document.querySelector(
+    "#image-modal-close-button"
+  );
+
+  // Function to close the image preview modal
+  function closeImageModal() {
+    const imageModal = document.querySelector(".modal__preview"); // The class for the image modal
+    closePopup(imageModal); // Call the general closePopup function with the specific modal as argument
+  }
+
+  // Event listener for the close button of the image preview modal
+  closeImageModalButton.addEventListener("click", closeImageModal);
 
   return cardElement;
 }
