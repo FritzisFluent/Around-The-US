@@ -121,11 +121,13 @@ function getCardElement(cardData) {
   const modalImage = imageModal.querySelector(".modal__image-preview");
   // Selecting the modal container
 
-  // Setting up the click event listener for the card image
+  // Setup click event for cardImage to open modal with image
   cardImage.addEventListener("click", () => {
-    modalImage.src = cardData.link; // Assign the correct image source
-    modalImage.alt = cardData.name; // Assign the appropriate alt text
-    openPopup(imageModal); // Open the image preview modal
+    modalImage.src = cardData.link;
+    modalImage.alt = cardData.name;
+    const modalContainer = imageModal.querySelector(".modal__container");
+    modalContainer.classList.add("modal__container_image-preview"); // Add the modifier class
+    openPopup(imageModal);
   });
 
   // Selection the button that closes the image preview modal

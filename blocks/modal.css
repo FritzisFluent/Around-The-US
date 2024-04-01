@@ -1,6 +1,5 @@
 /* Base modal styling */
 .modal {
-  background-color: transparent; /* Makes the modal background invisible */
   position: fixed;
   top: 0;
   left: 0;
@@ -11,11 +10,6 @@
   align-items: center;
   justify-content: center;
   z-index: 1000; /* Ensure the modal is above other content */
-}
-
-.modal {
-  background-color: none; /* Makes the modal background invisible */
-  /* Other styles to position and display the modal */
 }
 
 .modal_opened {
@@ -37,6 +31,17 @@
   /* Other styles for the container */
 }
 
+/* Modifier for the modal container to make it fit the image preview */
+.modal__container_image-preview {
+  padding: 0;
+  max-height: 75vh;
+  max-width: 75vw;
+  width: auto; /* This allows the width to adjust to the content, up to the max-width */
+  height: auto; /* This allows the height to adjust to the content, up to the max-height */
+  background-color: transparent; /* Makes the background transparent */
+  /* Add additional styles if needed */
+}
+
 /*! modal__close button styles */
 
 .modal__close {
@@ -49,15 +54,6 @@
   left: calc(100% + 5px);
   width: 40px;
   height: 40px;
-}
-
-.modal__content {
-  position: relative;
-  width: 75vw;
-  max-width: 75vw;
-  max-height: 75vh;
-  box-sizing: border-box;
-  /* Add more styles as necessary */
 }
 
 .modal__heading {
