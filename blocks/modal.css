@@ -1,16 +1,16 @@
 /* Base modal styling */
 .modal {
   display: none;
-}
-
-.modal_opened {
-  display: flex;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal_opened {
+  display: flex;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.3s ease-in-out;
@@ -38,11 +38,18 @@
 
 /* Modifier for the modal container to make it fit the image preview */
 .modal__container_image-preview {
-  padding: 0;
-  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 40px; /* Left padding */
+  padding-right: 40px; /* Right padding */
+  background-color: transparent; /* Optional: for a cleaner look */
+  /* These ensure the container does not limit the image size adjustments */
   max-width: 75vw;
-  width: auto; /* This allows the width to adjust to the content, up to the max-width */
-  height: auto; /* This allows the height to adjust to the content, up to the max-height */
+  max-height: 75vh;
+  width: auto; /* Adjust based on content */
+  height: auto; /* Adjust based on content */
 }
 
 /*! modal__close button styles */
@@ -57,6 +64,12 @@
   left: calc(100% + 5px);
   width: 40px;
   height: 40px;
+}
+
+/* Modifier for the close button in the image preview modal */
+.modal__close_image-preview {
+  bottom: calc(100% + 30px);
+  left: calc(100% - 30px);
 }
 
 .modal__heading {
@@ -117,19 +130,27 @@
 }
 
 .modal__image-preview {
-  /* Other styles to position and display the modal */
-  max-width: 100%; /* Image can be as wide as its container but no wider */
-  max-height: 75vh; /* Image can be as tall as 75% of the viewport height but no taller */
-  object-fit: contain; /* Ensures the image fits within its box while maintaining aspect ratio */
+  /* Ensures the image fits within its box while maintaining aspect ratio */
+  object-fit: contain;
+  /* Sets a maximum height for the image */
+  max-height: 75vh;
+  /* Sets a maximum width for the image, can be adjusted or removed based on design requirements */
+  max-width: 75vw;
+  /* Ensures the width auto-adjusts, maintaining the portrait aspect ratio */
+  width: auto;
+  /* Ensures the height auto-adjusts, maintaining the portrait aspect ratio */
+  height: auto;
 }
 
 .modal__image-title {
   color: #fff; /* Choose appropriate text color */
   width: 100%;
   padding: 10px; /* Adjust padding */
+  margin: 40px;
 }
 
 /*! Media Queries */
+
 @media screen and (max-width: 620px) {
   .modal__container {
     width: 282px;
@@ -153,8 +174,8 @@
   .modal__close {
     width: 26px;
     height: 26px;
-    bottom: calc(100% + 30px);
-    left: calc(100% - 30px);
+    bottom: calc(100% + 10px);
+    left: calc(100% - 10px);
   }
 
   /* Adjusting input styles for smaller screens */
@@ -166,5 +187,13 @@
   /* Targeting the last input element for smaller screens */
   .modal__input:last-of-type {
     margin-bottom: 30px; /* Increased bottom margin for the last input */
+  }
+
+  .modal__image-title {
+    color: #fff; /* Choose appropriate text color */
+    width: 80%;
+    padding: 5px; /* Adjust padding */
+    margin-top: 10px;
+    margin-left: 0;
   }
 }
