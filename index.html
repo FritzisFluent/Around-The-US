@@ -57,20 +57,20 @@
 
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="modal-close-button"></button>
+        <button class="modal__close" id="profile-modal-close-button"></button>
         <p class="modal__heading">Edit Profile</p>
         <form class="modal__form">
           <input
             type="text"
             id="form-input-title"
-            class="modal__input-title"
+            class="modal__input"
             name="title"
             placeholder="Name"
           />
           <input
             type="text"
             id="form-input-description"
-            class="modal__input-description"
+            class="modal__input"
             name="description"
             placeholder="Description"
           />
@@ -88,7 +88,7 @@
           <input
             type="text"
             id="card-name-input"
-            class="modal__input-title"
+            class="modal__input"
             name="title"
             placeholder="Title"
             required
@@ -96,7 +96,7 @@
           <input
             type="url"
             id="card-link-input"
-            class="modal__input-url"
+            class="modal__input"
             name="url"
             placeholder="Image URL"
             required
@@ -133,7 +133,7 @@
       <li class="card"></li
     ></template>
 
-    <!-- JS script-->
-    <script src="./scripts/index.js"></script>
+    <!-- JS script with defer attribute -->
+    <script src="./scripts/index.js" defer></script>
   </body>
 </html>

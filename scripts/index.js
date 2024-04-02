@@ -42,7 +42,9 @@ const profileEditButton = document.querySelector("#profile-edit-button");
 //Selecting the profile edit modal
 const profileEditModal = document.querySelector("#profile-edit-modal");
 //Selecting the close button for the profile edit modal
-const closeEditModalButton = document.querySelector("#modal-close-button");
+const closeEditModalButton = document.querySelector(
+  "#profile-modal-close-button"
+);
 //Selecting the profile title
 const profileTitle = document.querySelector(".profile__title");
 //Selecting the profile description
@@ -86,7 +88,7 @@ function closePopup(modal) {
 }
 
 /* --------------------------------------------------- */
-/* -----------Function to Create a Card Element---------- */
+/* -------Function to Create a Card Element---------- */
 /* -------------------------------------------------- */
 
 function getCardElement(cardData) {

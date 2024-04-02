@@ -1,5 +1,10 @@
 /* Base modal styling */
 .modal {
+  display: none;
+}
+
+.modal_opened {
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
@@ -12,12 +17,8 @@
   align-items: center;
   justify-content: center;
   z-index: 1000; /* Ensure the modal is above other content */
-}
-
-.modal_opened {
   visibility: visible;
   opacity: 1;
-  display: flex;
 }
 
 /*! modal__container styles */
@@ -42,8 +43,6 @@
   max-width: 75vw;
   width: auto; /* This allows the width to adjust to the content, up to the max-width */
   height: auto; /* This allows the height to adjust to the content, up to the max-height */
-  background-color: transparent; /* Makes the background transparent */
-  /* Add additional styles if needed */
 }
 
 /*! modal__close button styles */
@@ -77,24 +76,19 @@
   flex-direction: column;
 }
 
-.modal__input-title {
-  margin-bottom: 30px;
-  border: none;
+/* Common styles for all modal inputs */
+.modal__input {
+  width: 100%; /* Full width */
+  padding: 10px; /* Adjust padding as needed */
+  margin-bottom: 20px;
+  border: none; /* Border, adjust color as needed */
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px; /* Rounded corners, adjust radius as needed */
 }
 
-.modal__input-description {
+/* Specific styles for the last input element */
+.modal__input:last-of-type {
   margin-bottom: 48px;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-/*!styles for the modal__input-url */
-
-.modal__input-url {
-  margin-bottom: 48px;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 /*! modal__save-button styles */
@@ -111,7 +105,7 @@
   padding: 0;
 }
 
-button:hover {
+.modal__save-button:hover {
   background-color: #555;
 }
 
@@ -127,11 +121,6 @@ button:hover {
   max-width: 100%; /* Image can be as wide as its container but no wider */
   max-height: 75vh; /* Image can be as tall as 75% of the viewport height but no taller */
   object-fit: contain; /* Ensures the image fits within its box while maintaining aspect ratio */
-}
-
-.modal__container_preview {
-  background-color: transparent;
-  /* Add any other styles you want to apply when the image modal is open */
 }
 
 /*! Media Queries */
@@ -162,13 +151,14 @@ button:hover {
     left: calc(100% - 30px);
   }
 
-  .modal__input-description {
-    margin: 0;
-    height: 27px;
+  /* Adjusting input styles for smaller screens */
+  .modal__input {
+    padding: 8px 10px; /* Adjusted padding for smaller screens */
+    margin-bottom: 15px; /* Reduced space between inputs */
   }
 
-  .modal__input-title {
-    margin-bottom: 30px;
-    height: 27px;
+  /* Targeting the last input element for smaller screens */
+  .modal__input:last-of-type {
+    margin-bottom: 30px; /* Increased bottom margin for the last input */
   }
 }
