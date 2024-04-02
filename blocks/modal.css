@@ -123,6 +123,12 @@
   object-fit: contain; /* Ensures the image fits within its box while maintaining aspect ratio */
 }
 
+.modal__image-title {
+  color: #fff; /* Choose appropriate text color */
+  width: 100%;
+  padding: 10px; /* Adjust padding */
+}
+
 /*! Media Queries */
 @media screen and (max-width: 620px) {
   .modal__container {

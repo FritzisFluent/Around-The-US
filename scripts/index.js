@@ -120,13 +120,14 @@ function getCardElement(cardData) {
   /* ---------------------------------------- */
   // Selecting the image preview modal and its image element
   const imageModal = document.querySelector(".modal__preview");
-  const modalImage = imageModal.querySelector(".modal__image-preview");
-  // Selecting the modal container
+  const modalImage = imageModal.querySelector(".modal__image-preview"); // Selecting the modal container
 
+  const modalTitle = document.querySelector(".modal__image-title"); // Select the title element
   // Setup click event for cardImage to open modal with image
   cardImage.addEventListener("click", () => {
     modalImage.src = cardData.link;
     modalImage.alt = cardData.name;
+    modalTitle.textContent = cardData.name; // Set title text
     const modalContainer = imageModal.querySelector(".modal__container");
     modalContainer.classList.add("modal__container_image-preview"); // Add the modifier class
     openPopup(imageModal);
