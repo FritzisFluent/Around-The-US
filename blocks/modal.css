@@ -1,6 +1,11 @@
 /* Base modal styling */
 .modal {
-  display: none;
+  pointer-events: none;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -10,15 +15,10 @@
 }
 
 .modal_opened {
-  display: flex;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.3s ease-in-out;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000; /* Ensure the modal is above other content */
   visibility: visible;
   opacity: 1;
+  transition: visibility 0s linear 0s, opacity 0.3s linear;
+  pointer-events: auto;
 }
 
 /*! modal__container styles */
@@ -43,10 +43,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 40px; /* Left padding */
+  padding-left: 40px;
   padding-right: 40px; /* Right padding */
-  background-color: transparent; /* Optional: for a cleaner look */
-  /* These ensure the container does not limit the image size adjustments */
+  background-color: transparent;
   max-width: 75vw;
   max-height: 75vh;
   width: auto; /* Adjust based on content */
@@ -131,31 +130,38 @@
 }
 
 .modal__image-preview {
-  /* Ensures the image fits within its box while maintaining aspect ratio */
   object-fit: contain;
-  /* Sets a maximum height for the image */
   max-height: 75vh;
-  /* Sets a maximum width for the image, can be adjusted or removed based on design requirements */
   max-width: 75vw;
-  /* Ensures the width auto-adjusts, maintaining the portrait aspect ratio */
   width: auto;
-  /* Ensures the height auto-adjusts, maintaining the portrait aspect ratio */
   height: auto;
 }
 
 .modal__image-title {
-  color: #fff; /* Choose appropriate text color */
+  color: #fff;
   width: 100%;
-  padding: 10px; /* Adjust padding */
+  padding: 10px;
   margin: 40px;
 }
 
 /*! Media Queries */
 
+@media screen and (max-width: 960px) {
+  .modal__close_image-preview {
+    bottom: calc(100%);
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .modal__close_image-preview {
+    bottom: calc(100% - 30px);
+  }
+}
+
 @media screen and (max-width: 620px) {
   .modal__container {
     width: 282px;
-    height: auto; /* Adjusted height to fit content, not a fixed height */
+    height: auto;
     border-radius: 10px;
     padding: 25px 22px;
   }
@@ -176,13 +182,7 @@
     width: 26px;
     height: 26px;
     bottom: calc(100% + 10px);
-    left: calc(100% - 10px);
-  }
-
-  /* Modifier for the close button in the image preview modal */
-  .modal__close_image-preview {
-    bottom: calc(100%);
-    left: calc(100% + 50px);
+    left: calc(100% - 40px);
   }
 
   /* Adjusting input styles for smaller screens */
@@ -197,17 +197,18 @@
   }
 
   .modal__image-title {
-    color: #fff; /* Choose appropriate text color */
+    color: #fff;
     width: 80%;
-    padding: 5px; /* Adjust padding */
+    padding: 5px;
     margin-top: 10px;
     margin-left: 0;
   }
 }
 
 @media screen and (max-width: 320px) {
+  /* CSS rules for screens 320px wide and above */
   .modal__close_image-preview {
+    left: calc(100% - 10px);
     bottom: calc(100% - 20px);
-    left: calc(100% - 15px);
   }
 }
