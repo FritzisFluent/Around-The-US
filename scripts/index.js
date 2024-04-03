@@ -132,12 +132,6 @@ function getCardElement(cardData) {
     openPopup(imageModal);
   });
 
-  // Function to close the image preview modal
-  function closeImageModal() {
-    const imageModal = document.querySelector(".modal__preview"); // The class for the image modal
-    closePopup(imageModal); // Call the general closePopup function with the specific modal as argument
-  }
-
   return cardElement;
 }
 

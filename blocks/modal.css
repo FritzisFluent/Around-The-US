@@ -66,6 +66,11 @@
   height: 40px;
 }
 
+/* Hover effect for the close button */
+.modal__close:hover {
+  opacity: 0.7; /* Adjust the value as needed for desired effect */
+}
+
 /* Modifier for the close button in the image preview modal */
 .modal__close_image-preview {
   bottom: calc(100% + 30px);
