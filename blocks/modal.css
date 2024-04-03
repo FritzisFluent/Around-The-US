@@ -38,6 +38,7 @@
 
 /* Modifier for the modal container to make it fit the image preview */
 .modal__container_image-preview {
+  margin-bottom: 20px; /* Add more margin at the top as necessary */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -178,6 +179,12 @@
     left: calc(100% - 10px);
   }
 
+  /* Modifier for the close button in the image preview modal */
+  .modal__close_image-preview {
+    bottom: calc(100%);
+    left: calc(100% + 50px);
+  }
+
   /* Adjusting input styles for smaller screens */
   .modal__input {
     padding: 8px 10px; /* Adjusted padding for smaller screens */
@@ -195,5 +202,12 @@
     padding: 5px; /* Adjust padding */
     margin-top: 10px;
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .modal__close_image-preview {
+    bottom: calc(100% - 20px);
+    left: calc(100% - 15px);
   }
 }

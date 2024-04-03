@@ -128,8 +128,6 @@ function getCardElement(cardData) {
     modalImage.src = cardData.link;
     modalImage.alt = cardData.name;
     modalTitle.textContent = cardData.name; // Set title text
-    const modalContainer = imageModal.querySelector(".modal__container");
-    modalContainer.classList.add("modal__container_image-preview"); // Add the modifier class
 
     openPopup(imageModal);
   });
