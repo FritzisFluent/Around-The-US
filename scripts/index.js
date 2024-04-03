@@ -132,22 +132,22 @@ function getCardElement(cardData) {
     openPopup(imageModal);
   });
 
-  // Selection the button that closes the image preview modal
-  const closeImageModalButton = document.querySelector(
-    "#image-modal-close-button"
-  );
-
   // Function to close the image preview modal
   function closeImageModal() {
     const imageModal = document.querySelector(".modal__preview"); // The class for the image modal
     closePopup(imageModal); // Call the general closePopup function with the specific modal as argument
   }
 
-  // Event listener for the close button of the image preview modal
-  closeImageModalButton.addEventListener("click", closeImageModal);
-
   return cardElement;
 }
+
+// Setup close event for image preview modal globally
+const closeImageModalButton = document.querySelector(
+  "#image-modal-close-button"
+);
+closeImageModalButton.addEventListener("click", () =>
+  closePopup(document.querySelector(".modal__preview"))
+);
 
 /* -------------------------------------------------- */
 /* ------Event Handlers for Form Submissions---------- */
@@ -178,6 +178,8 @@ function handleAddCardFormSubmit(evt) {
 
 // Event listeners for the profile edit modal
 profileEditButton.addEventListener("click", () => openPopup(profileEditModal));
+modalFormInputTitle.value = profileTitle.textContent;
+modalFormInputDescription.value = profileDescription.textContent;
 closeEditModalButton.addEventListener("click", () =>
   closePopup(profileEditModal)
 );
